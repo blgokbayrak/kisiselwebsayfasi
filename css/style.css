@@ -1,10 +1,16 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
+    padding: 0;
+
     background-color: #fff0f5;
     /* kiraz çiçeği açık pembe rengi */
     color: #264653;
     /* petrol mavisi rengi */
+}
+
+* {
+    box-sizing: border-box;
 }
 
 /* NAVBAR */
@@ -14,6 +20,8 @@ nav {
     padding: 16px;
     text-align: center;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+
+    width: 100%;
 }
 
 nav a {
@@ -26,6 +34,14 @@ nav a {
 nav a:hover {
     color: #e63946;
     /* kırmızı */
+}
+
+/* ANA YAPI */
+.ana-yapi {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* BAŞLIKLAR */
@@ -93,4 +109,70 @@ footer {
     text-align: center;
     padding: 15px;
     margin-top: 35px;
+}
+
+.metinler p,
+.metinler ul {
+    width: 100%;
+    margin: 10px 0;
+}
+
+/* ÜST BAŞLIK */
+.ust-baslik {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.ust-baslik h1 {
+    font-size: 40px;
+    color: #1f3d2b;
+}
+
+.ust-baslik h3 {
+    color: #444;
+}
+
+/* ORTA ALAN */
+.orta-alan {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    gap: 30px;
+}
+
+/* METİN */
+.metinler {
+    width: 50%;
+    padding-left: 20px;
+}
+
+/* BÜYÜK RESİM */
+.buyuk-resim img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* KÜÇÜK RESİMLER */
+.kucuk-resimler {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px;
+}
+
+.kucuk-resimler img {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* HEDEFLER */
+.hedefler {
+    width: 80%;
+    margin: 40px;
 }
