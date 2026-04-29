@@ -91,7 +91,7 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: #555;
+    color: #523352;
     margin-right: 10px;
     font-weight: bold;
 }
@@ -111,5 +111,47 @@ nav a:hover {
 
 .kart h3 {
     margin-bottom: 10px;
-    color: #3c082c;
+    color: #2a282a;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8d6e4;
+    color: #333;
+}
+
+header {
+
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+main {
+    width: 80%;
+    margin: 40px auto;
+}
+
+.cv article {
+    background-color: #fff;
+    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 8px;
+}
+
+h1,
+h2 {
+    color: #222;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
 }
