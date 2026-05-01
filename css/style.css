@@ -1,7 +1,7 @@
 .konteynir {
     max-width: 1000px;
     /* sayfa genişliğini maximum ayarı */
-    margin: 15px auto;
+    margin: 10px auto;
 }
 
 /* tüm kartların düzeni */
@@ -51,16 +51,27 @@
     object-fit: cover;
     display: block;
     /* blok elementi */
-    border-radius: 10px;
+    border-radius: 1px;
+
+    position: relative;
+
 }
 
 .profil {
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
+    margin: 10px;
+    margin-bottom: 30px;
     display: block;
     /* blok elementi */
-    border-radius: 10px;
+    border-radius: 110px;
+
+
+    position: absolute;
+    right: 20px;
+    top: -70px;
+
 }
 
 @media (max-width: 600px) {
@@ -78,9 +89,7 @@
     background: rgb(212, 210, 210);
 }
 
-body {
-    background-color: #f6eaf0;
-}
+
 
 nav {
     padding: 15px;
@@ -107,39 +116,48 @@ nav a:hover {
     /* elemanların iki uçta olmasını sağlar*/
     align-items: center;
     /* hizalama */
+    position: relative;
+    margin-top: 5px;
+
 }
 
 .kart h3 {
     margin-bottom: 10px;
+    /* başlığın altına boşluk koyar */
     color: #2a282a;
+    /* başlık rengi */
 }
 
 body {
     margin: 0;
+    /* tarayıcının boşluk sıfır */
     font-family: Arial, sans-serif;
-    background-color: #f8d6e4;
+    /* yazı tipi */
+    background-color: #f6eaf0;
+    /* sayfanın arka planı */
     color: #333;
+    /* yazı rengi */
 }
 
 header {
-
+    /* üst menü navbar alanı */
     padding: 15px;
-    border-bottom: 1px solid #ccc;
+    /* içeriden boşluk */
+    border-bottom: 1px solid #1b1a1a;
+    /* ince çizgi */
 }
 
-nav a {
-    margin-right: 20px;
-    text-decoration: none;
-    color: #333;
-}
 
 main {
-    width: 80%;
+    /* cv sayfası kutuları */
+    width: 60%;
+    /* ekranın kaplama yüzdesi */
     margin: 40px auto;
+    /* üst alt boşluk */
 }
 
 .cv article {
-    background-color: #fff;
+    background-color: #ded8de;
     margin-bottom: 25px;
     padding: 25px;
     border-radius: 8px;
@@ -147,11 +165,120 @@ main {
 
 h1,
 h2 {
-    color: #222;
+    color: #232222;
 }
 
 footer {
+    /* telif hakkı yazısı en alttaki */
     text-align: center;
-    padding: 20px;
-    background-color: #fff;
+    background-color: #f5e9e9;
+    /* arka planı beyaz */
+}
+
+
+
+
+
+.takim {
+    display: flex;
+    /* elemanların yatay dizilişi*/
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    /* aralardaki boşluklar */
+    padding: 40px 60px;
+}
+
+.takim-metin {
+    width: 45%;
+    background-color: #e4e0e3;
+    padding: 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 25px rgba(82, 51, 82, 0.15);
+    /* soldaki yazıların sayfadaki kapladığı alan */
+}
+
+.takim-gorseller {
+    width: 45%;
+    /* görsellerin kapladığı alan */
+    position: relative;
+    /* kartların konumlandırılışı */
+    min-height: 550px;
+}
+
+/* Kart genel stil */
+.gorsel-kart {
+    width: 280px;
+    height: 350px;
+    border-radius: 40px;
+    /* köşelerin yuvarlaklığı */
+    overflow: hidden;
+    /* taşan resmi keser */
+    position: absolute;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Resim içi */
+.gorsel-kart img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Üstteki siyah kart */
+.gorsel-kart.siyah {
+    background-color: #111;
+    top: 20px;
+    left: 40px;
+    z-index: 2;
+}
+
+/* Alttaki yeşil kart */
+.gorsel-kart.yesil {
+    background-color: transparent;
+    box-shadow: none;
+    top: 240px;
+    left: 220px;
+
+}
+
+.takim-metin h1 {
+    color: #2a282a;
+    margin-bottom: 20px;
+}
+
+.takim-metin h2 {
+    color: #153e25;
+}
+
+.takim-metin p,
+.takim-metin li {
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    /* mobil için uyum */
+    .takim {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .takim-metin,
+    .takim-gorseller {
+        width: 100%;
+    }
+
+    .takim-gorseller {
+        min-height: 700px;
+    }
+
+    .gorsel-kart.siyah {
+        left: 10px;
+    }
+
+    .gorsel-kart.yesil {
+        left: 80px;
+    }
 }
