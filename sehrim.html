@@ -1,60 +1,83 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Şehrim</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- link google fonttan ikon alındı -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward" />
+
+    <!-- link SwipeerJS CSS alındı-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+
+
+
+
+    <title>Card Slider HTML&CSS </title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="container swiper">
+        <ul class="card-list swiper-wrapper">
 
-    <div class="konteynir">
-        <nav>
-            <a href="index.html">Hakkımda</a> |
-            <a href="ozgecmis.html">Özgeçmiş</a> |
-            <a href="sehrim.html">Şehrim</a> |
-            <a href="mirasimiz.html">Mirasımız</a> |
-            <a href="ilgi.html">İlgi Alanlarım</a> |
-            <a href="iletisim.html">İletişim</a> |
-            <a href="login.html">Login</a>
-        </nav>
+            <li class="card-item swiper-slide">
+                <a href="#" class="card-link">
+                    <img src="img/bilimmerkezi.png" alt="Card Image" class="card-image">
+                    <p class="badge bilimmerkezi">Bilim Merkezi</p>
+                    <h2 class="card-title">loremm</h2>
+                    <button class="card-button material-symbols-rounded">arrow_forward</button>
+                </a>
+            </li>
+
+            <li class="card-item swiper-slide">
+                <a href="#" class="card-link">
+                    <img src="img/degirmendere.webp" alt="Card Image" class="card-image">
+                    <p class="badge degirmendere">Değirmendere Sahil</p>
+                    <h2 class="card-title">loremm</h2>
+                    <button class="card-button material-symbols-rounded">arrow_forward</button>
+                </a>
+            </li>
+
+            <li class="card-item swiper-slide">
+                <a href="#" class="card-link">
+                    <img src="img/kocaeli1.jpeg" alt="Card Image" class="card-image">
+                    <p class="badge kocaeli1">Arkeoloji Müzesi</p>
+                    <h2 class="card-title">loremm</h2>
+                    <button class="card-button material-symbols-rounded">arrow_forward</button>
+                </a>
+            </li>
+
+            <li class="card-item swiper-slide">
+                <a href="#" class="card-link">
+                    <img src="img/masukiye2.jpg" alt="Card Image" class="card-image">
+                    <p class="badge masukiye2">Maşukiye</p>
+                    <h2 class="card-title">loremm</h2>
+                    <button class="card-button material-symbols-rounded">arrow_forward</button>
+                </a>
+            </li>
+
+            <li class="card-item swiper-slide">
+                <a href="#" class="card-link">
+                    <img src="img/saatkulesi.jpg" alt="Card Image" class="card-image">
+                    <p class="badge saatkulesi">Saat Kulesi</p>
+                    <h2 class="card-title">loremm</h2>
+                    <button class="card-button material-symbols-rounded">arrow_forward</button>
+                </a>
+            </li>
+
+        </ul>
+
+        <div class="swiper-pagination"></div>
+        <div class="swiper-slide-button swiper-button-prev"></div>
+        <div class="swiper-slide-button swiper-button-next"></div>
     </div>
 
-    <h1>Şehrim</h1>
-
-    <h2>Kocaeli</h2>
-    <p>Kocaeli, Marmara Bölgesi'nde yer alan önemli şehirlerden biridir. Doğal güzellikleri, kültürel etkinliklerinin
-        yanı sıra ulaşım ve diğer imkanları bakımından da gelişmiştir.</p>
-
-    <h2>Nüfus</h2>
-    <p>Kocaeli'nin nüfusu yaklaşık 2 milyondur.</p>
-
-    <h2>Gezilecek Yerler</h2>
-    <ul>
-        <li>Kocaeli Bilim Merkezi</li>
-        <li>Maşukiye</li>
-        <li>Ormanya Doğal Yaşam Parkı</li>
-        <li>Değirmendere</li>
-        <li>Kocaeli Arkeoloji Müzesi</li>
-    </ul>
-
-    <h2>Şehre Ait Görseller</h2>
-
-    <h2>Şehre Ait Görseller</h2>
-
-    <img id="sliderResim" src="img/kocaeli1.jpeg">
-
-
-    <br><br>
-
-    <button onclick="oncekiResim()">Önceki</button>
-    <button onclick="sonrakiResim()">Sonraki</button>
-    <br><br>
-
-    <script src="js/script.js"></script>
+    </div>
+    <!-- link SwiperJS script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

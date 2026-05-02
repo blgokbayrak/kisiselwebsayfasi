@@ -1,28 +1,27 @@
-let resimler = [
-    "img/kocaeli1.jpeg",
-    "img/degirmendere.webp",
-    "img/bilimmerkezi.png",
-    "img/masukiye2.jpg"
-];
+new Swiper('.container', {
+    loop: true,
+    spaceBetween: 30,
 
-let sira = 0;
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true
+    },
 
-function sonrakiResim() {
-    sira++;
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
 
-    if (sira >= resimler.length) {
-        sira = 0;
+    breakpoints: {
+        0: {
+            slidesPerView: 1
+        },
+        768: {
+            slidesPerView: 2
+        },
+        1024: {
+            slidesPerView: 3
+        }
     }
-
-    document.getElementById("sliderResim").src = resimler[sira];
-}
-
-function oncekiResim() {
-    sira--;
-
-    if (sira < 0) {
-        sira = resimler.length - 1;
-    }
-
-    document.getElementById("sliderResim").src = resimler[sira];
-}
+});
