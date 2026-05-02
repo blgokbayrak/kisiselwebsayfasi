@@ -1,68 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- link google fonttan ikon alındı -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- link SwipeerJS CSS alındı-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
-
-
-
-    <title>Card Slider HTML&CSS </title>
-    <link rel="stylesheet" href="style.css">
+    <title>Şehrim Slider</title>
 </head>
 
 <body>
+
+    <div class="konteynir">
+        <nav>
+            <a href="index.html">Hakkımda</a> |
+            <a href="ozgecmis.html">Özgeçmiş</a> |
+            <a href="sehrim.html">Şehrim</a> |
+            <a href="mirasimiz.html">Mirasımız</a> |
+            <a href="ilgi.html">İlgi Alanlarım</a> |
+            <a href="iletisim.html">İletişim</a> |
+            <a href="login.html">Login</a>
+        </nav>
+    </div>
+
     <div class="container swiper">
         <ul class="card-list swiper-wrapper">
 
             <li class="card-item swiper-slide">
                 <a href="#" class="card-link">
-                    <img src="img/bilimmerkezi.png" alt="Card Image" class="card-image">
-                    <p class="badge bilimmerkezi">Bilim Merkezi</p>
-                    <h2 class="card-title">loremm</h2>
+                    <img src="img/bilimmerkezi.png" alt="Bilim Merkezi" class="card-image">
+                    <p class="badge">Bilim Merkezi</p>
+                    <h2 class="card-title">Bilim Merkezi</h2>
                     <button class="card-button material-symbols-rounded">arrow_forward</button>
                 </a>
             </li>
 
             <li class="card-item swiper-slide">
                 <a href="#" class="card-link">
-                    <img src="img/degirmendere.webp" alt="Card Image" class="card-image">
-                    <p class="badge degirmendere">Değirmendere Sahil</p>
-                    <h2 class="card-title">loremm</h2>
+                    <img src="img/degirmendere.webp" alt="Değirmendere Sahil" class="card-image">
+                    <p class="badge">Değirmendere Sahil</p>
+                    <h2 class="card-title">Değirmendere Sahil</h2>
                     <button class="card-button material-symbols-rounded">arrow_forward</button>
                 </a>
             </li>
 
             <li class="card-item swiper-slide">
                 <a href="#" class="card-link">
-                    <img src="img/kocaeli1.jpeg" alt="Card Image" class="card-image">
-                    <p class="badge kocaeli1">Arkeoloji Müzesi</p>
-                    <h2 class="card-title">loremm</h2>
+                    <img src="img/kocaeli1.jpeg" alt="Arkeoloji Müzesi" class="card-image">
+                    <p class="badge">Arkeoloji Müzesi</p>
+                    <h2 class="card-title">Arkeoloji Müzesi</h2>
                     <button class="card-button material-symbols-rounded">arrow_forward</button>
                 </a>
             </li>
 
             <li class="card-item swiper-slide">
                 <a href="#" class="card-link">
-                    <img src="img/masukiye2.jpg" alt="Card Image" class="card-image">
-                    <p class="badge masukiye2">Maşukiye</p>
-                    <h2 class="card-title">loremm</h2>
+                    <img src="img/masukiye2.jpg" alt="Maşukiye" class="card-image">
+                    <p class="badge">Maşukiye</p>
+                    <h2 class="card-title">Maşukiye</h2>
                     <button class="card-button material-symbols-rounded">arrow_forward</button>
                 </a>
             </li>
 
             <li class="card-item swiper-slide">
                 <a href="#" class="card-link">
-                    <img src="img/saatkulesi.jpg" alt="Card Image" class="card-image">
-                    <p class="badge saatkulesi">Saat Kulesi</p>
-                    <h2 class="card-title">loremm</h2>
+                    <img src="img/saatkulesi.jpg" alt="Saat Kulesi" class="card-image">
+                    <p class="badge">Saat Kulesi</p>
+                    <h2 class="card-title">Saat Kulesi</h2>
                     <button class="card-button material-symbols-rounded">arrow_forward</button>
                 </a>
             </li>
@@ -70,14 +77,12 @@
         </ul>
 
         <div class="swiper-pagination"></div>
-        <div class="swiper-slide-button swiper-button-prev"></div>
-        <div class="swiper-slide-button swiper-button-next"></div>
+        <div class="swiper-button-prev swiper-slide-button"></div>
+        <div class="swiper-button-next swiper-slide-button"></div>
     </div>
 
-    </div>
-    <!-- link SwiperJS script -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
