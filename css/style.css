@@ -299,7 +299,6 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(#bdbec3, #f9e3f9);
 
 }
 
@@ -703,7 +702,6 @@ footer {
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f6eaf0;
     color: #333;
     display: block;
     min-height: 100vh;
@@ -739,7 +737,7 @@ body {
 }
 
 .card-link:hover {
-    border-color: #e6bfe6;
+    border-color: #e8a9c5;
 }
 
 .card-image {
@@ -750,14 +748,20 @@ body {
 }
 
 .badge {
-    color: #f6a4f6;
-    background: #dde4ff;
+    color: #1e1c1d;
+    background: #f3d4e2;
+
     margin: 16px 0 18px;
     padding: 8px 16px;
     font-size: 15px;
     width: fit-content;
     border-radius: 50px;
+    background: rgba(0, 0, 0, 0.6);
+    /* yarı saydam siyah */
+    font-weight: 600;
 }
+
+
 
 .card-title {
     font-size: 20px;
@@ -769,28 +773,35 @@ body {
     width: 35px;
     border-radius: 50%;
     margin-top: 25px;
-    border: 2px solid #dfbfdf;
+    color: #a85a7c;
+    background: #f3d4e2;
     background: none;
-    color: #ecc0ec;
+    border: 2px solid #e8a9c5;
     cursor: pointer;
     transform: rotate(-45deg);
 }
 
 .card-link:hover .card-button {
-    color: rgb(126, 124, 125);
-    background: #8e898e;
+    background: #e8a9c5;
+    color: #fff;
 }
 
 .swiper-pagination-bullet {
     height: 13px;
     width: 13px;
-    background: #dfb3df;
+    background: #ccc;
 }
 
 .swiper-button-prev,
 .swiper-button-next {
     color: #646064;
 }
+
+.swiper-pagination-bullet-active {
+    background: #e8a9c5;
+}
+
+
 
 @media (max-width: 768px) {
     .container {
@@ -805,4 +816,135 @@ body {
 .konteynir {
     max-width: 1000px;
     margin: 10px auto;
+}
+
+.slider-wrapper {
+    width: 60%;
+    margin: 25px auto;
+    padding: 20px;
+    background: #959393;
+    border-radius: 25px;
+}
+
+/* Slider ok buton rengi  */
+.card-list .card-link .card-button {
+    border: 2px solid #c7a7b6;
+    color: #c7a7b6;
+    background: transparent;
+}
+
+.card-list .card-link:hover .card-button {
+    background: #c7a7b6;
+    color: white;
+    border-color: #c7a7b6;
+}
+
+/* Tıklanmış / aktif durum */
+.card-list .card-item .card-link:active .card-button,
+.card-button:active {
+    background: #b98fa4;
+    color: white;
+    border-color: #b98fa4;
+}
+
+
+
+
+/*  ŞEHRİM BAŞLIK en üstteki kısım  */
+.sehrim-baslik {
+    width: 260px;
+    margin: 30px auto 10px;
+    padding: 12px;
+    background: #666566;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.sehrim-baslik h1 {
+    font-size: 24px;
+    color: #efcad6;
+}
+
+
+/*  PEMBE YAZI ALANI  */
+.sehrim-yazi {
+    width: 60%;
+    min-height: 220px;
+    margin: 40px auto;
+    padding: 35px;
+    background: #e9cad7;
+    border-radius: 30px;
+    font-size: 20px;
+    line-height: 1.7;
+    color: #111;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+
+/*  ALT GÖRSEL KARTLAR  */
+.sehrim-gorseller {
+    width: 100%;
+    margin: 3px auto;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+/* en alttaki üçlü kartlar */
+.sehrim-kart {
+    width: 260px;
+    background: #dddddd;
+    border-radius: 25px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #383737;
+    transition: 0.3s;
+}
+
+.sehrim-kart:hover {
+    transform: translateY(-7px);
+    background: #ffffff;
+}
+
+/* en alttaki üçlü kartların resim ayarları*/
+
+.sehrim-kart img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+/* en alttaki üçlü kartların yazısı*/
+.sehrim-kart h3 {
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.sehrim-kart span {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #444;
+}
+
+
+@media (max-width: 768px) {
+
+    .sehrim-yazi {
+        width: 90%;
+        font-size: 17px;
+        padding: 25px;
+    }
+
+    .sehrim-gorseller {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sehrim-kart {
+        width: 85%;
+    }
 }
