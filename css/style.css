@@ -80,20 +80,11 @@
     }
 }
 
-/* RENKLER */
-.pembe {
-    background: #f8c8dc;
-}
-
-.beyaz {
-    background: rgb(212, 210, 210);
-}
 
 
 
 nav {
     padding: 15px;
-    background-color: rgb(241, 237, 237);
     border-radius: 15px;
     margin-bottom: 20px;
 }
@@ -133,9 +124,9 @@ body {
     /* tarayıcının boşluk sıfır */
     font-family: Arial, sans-serif;
     /* yazı tipi */
-    background-color: #f6eaf0;
+    background-color: #EEDEDC;
     /* sayfanın arka planı */
-    color: #333;
+    color: #362B1D;
     /* yazı rengi */
 }
 
@@ -156,23 +147,17 @@ main {
     /* üst alt boşluk */
 }
 
-.cv article {
-    background-color: #ded8de;
-    margin-bottom: 25px;
-    padding: 25px;
-    border-radius: 8px;
-}
 
 h1,
 h2 {
-    color: #232222;
+    color: #362B1D;
 }
 
 footer {
     /* telif hakkı yazısı en alttaki */
     text-align: center;
-    background-color: #f5e9e9;
-    /* arka planı beyaz */
+    background-color: #EEDEDC;
+    /* arka planı  */
 }
 
 
@@ -191,10 +176,10 @@ footer {
 
 .takim-metin {
     width: 45%;
-    background-color: #e4e0e3;
+    background-color: #EEDEDC;
     padding: 30px;
     border-radius: 25px;
-    box-shadow: 0 10px 25px rgba(82, 51, 82, 0.15);
+    box-shadow: 0 10px 25px #362B1D(82, 51, 82, 0.15);
     /* soldaki yazıların sayfadaki kapladığı alan */
 }
 
@@ -243,7 +228,7 @@ footer {
 }
 
 .takim-metin h1 {
-    color: #2a282a;
+    color: #362B1D;
     margin-bottom: 20px;
 }
 
@@ -323,7 +308,7 @@ body {
 }
 
 .card-list .card-item .card-link:hover {
-    border-color: #76777d;
+    border-color: #bdc1d7;
 
 }
 
@@ -350,7 +335,7 @@ body {
 
 .card-list .card-link .card-title {
     font-size: 1.19rem;
-    color: #000;
+    color: #362B1D;
     font-weight: 600;
 
 }
@@ -360,9 +345,9 @@ body {
     width: 35px;
     border-radius: 50%;
     margin: 30px 0 5px;
-    border: 2px solid #f053d1;
+    border: 2px solid #B68680;
     background: none;
-    color: #f053eb;
+    color: #EEDEDC;
     cursor: pointer;
     transform: rotate(-45deg);
     transition: 0.4s ease;
@@ -372,7 +357,7 @@ body {
 
 .card-list .card-link:hover .card-button {
     color: #fff;
-    background: #f053de;
+    background: #B68680;
 }
 
 .card-wrapper {
@@ -386,7 +371,7 @@ body {
     height: 13px;
     width: 13px;
     opacity: 0.5;
-    background: #f053d6;
+    background: #B68680;
 
 
 }
@@ -511,7 +496,7 @@ nav a {
 }
 
 nav a:hover {
-    color: #e89ab5;
+    color: #B68680;
 }
 
 .ust-icerik {
@@ -692,6 +677,10 @@ footer {
 
 
 
+
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -705,6 +694,9 @@ body {
     color: #333;
     display: block;
     min-height: 100vh;
+    line-height: 1.6;
+    /* yazıları açar */
+
 }
 
 
