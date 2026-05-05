@@ -1,15 +1,99 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 
 <head>
-    <title>Ilgi Alanlarim</title>
+    <meta charset="UTF-8">
+
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            display: flex;
+        }
+
+        /* SOL MENÜ */
+        .menu {
+            width: 220px;
+            background: #d9d9d9;
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+
+        .menu button {
+            display: block;
+            margin: 20px 0;
+            padding: 14px;
+            width: 100%;
+            background: #f2f2f2;
+            color: #333;
+            border: 1px solid #aaa;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* SAĞ ALAN */
+        .icerik {
+            flex: 1;
+            margin-right: 260px;
+            padding: 100px 20px 20px 20px;
+        }
+
+
+        /* KARTLAR */
+        .card {
+            display: inline-block;
+            width: 200px;
+            margin: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            text-align: center;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        header,
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 260px;
+            height: 70px;
+            background: #f7eaf2;
+            display: flex;
+            align-items: center;
+            z-index: 10;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Ilgi Alanlarim Sayfasi</h1>
     <div class="konteynir">
+
         <nav>
+            <h1>Ilgi Alanlarim Sayfasi</h1>
+
             <a href="index.html">Hakkımda</a> |
             <a href="ozgecmis.html">Özgeçmiş</a> |
             <a href="sehrim.html">Şehrim</a> |
@@ -19,6 +103,135 @@
             <a href="login.html">Login</a>
         </nav>
     </div>
+
+
+
+    <div class="menu">
+        <button onclick="filmleriGetir()">🎬 Dizi / Film</button>
+        <button onclick="yerleriGoster()">🌍 Yolculuk</button>
+        <button onclick="kitaplariGetir()">📚 Kitap</button>
+    </div>
+
+    <div class="icerik" id="icerik">
+        <h1>Hoşgeldin 👋</h1>
+    </div>
+
+    <script>
+
+        // 🎬 FİLMLER
+        const filmListem = [
+            "merlin",
+            "brooklyn nine nine",
+            "sahtekar",
+            "fight club",
+            "green book",
+            "me before you"
+        ];
+
+        async function filmleriGetir() {
+            const apiKey = "90e9ba554b8bd92ee04333f722479f8d";
+            const alan = document.getElementById("icerik");
+            alan.innerHTML = "<h2>🎬 Sevdiğim Film & Diziler</h2>";
+
+            for (let filmAdi of filmListem) {
+
+                const url = `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&query=${filmAdi}`;
+
+                const cevap = await fetch(url);
+                const veri = await cevap.json();
+
+                const film = veri.results[0];
+
+                const poster = film.poster_path
+                    ? "https://image.tmdb.org/t/p/w500" + film.poster_path
+                    : "";
+
+                alan.innerHTML += `
+      <div class="card">
+        <img src="${poster}">
+        <h3>${film.title || film.name}</h3>
+        <p>⭐ ${film.vote_average}</p>
+      </div>
+    `;
+            }
+        }
+
+        // 🌍 YOLCULUK
+        const yerler = [
+            { ad: "Mısır", foto: "img/misir.jpg" },
+            { ad: "İskoçya", foto: "img/iskocya.jpg" },
+            { ad: "Japonya", foto: "img/japonya.jpg" },
+            { ad: "Tayland", foto: "img/tayland.jpg" },
+            { ad: "İsviçre", foto: "img/isvicre.jpg" }
+        ];
+
+        function yerleriGoster() {
+            const alan = document.getElementById("icerik");
+            alan.innerHTML = "<h2>🌍 Gitmek İstediğim Yerler</h2>";
+
+            yerler.forEach(function (yer) {
+                alan.innerHTML += `
+      <div class="card">
+        <img src="${yer.foto}" alt="${yer.ad}">
+        <h3>${yer.ad}</h3>
+      </div>
+    `;
+            });
+        }
+
+        // 📚 KİTAPLAR
+        const kitapListem = [
+            "icatlarım ve hayatım tesla",
+            "bugünü yaşama arzusu yalom",
+            "yalnızız peyami safa",
+            "bozkır çehov",
+            "ellerin zamanlarla dolu paul celan",
+            "dava kafka",
+            "doğu yolculuğu hesse",
+            "insanın anlam arayışı frankl",
+            "fareler ve insanlar steinbeck"
+        ];
+
+        async function kitaplariGetir() {
+            const alan = document.getElementById("icerik");
+            alan.innerHTML = "<h2>📚 Sevdiğim Kitaplar</h2>";
+
+            const kitapListem = [
+                "icatlarım ve hayatım tesla",
+                "bugünü yaşama arzusu yalom",
+                "yalnızız peyami safa",
+                "bozkır çehov",
+                "ellerin zamanlarla dolu paul celan",
+                "dava kafka",
+                "doğu yolculuğu hesse",
+                "insanın anlam arayışı frankl",
+                "fareler ve insanlar steinbeck"
+            ];
+
+            for (let kitapAdi of kitapListem) {
+                const url = "https://openlibrary.org/search.json?q=" + encodeURIComponent(kitapAdi);
+                const cevap = await fetch(url);
+                const veri = await cevap.json();
+                const kitap = veri.docs[0];
+
+                if (!kitap) continue;
+
+                const kapak = kitap.cover_i
+                    ? `https://covers.openlibrary.org/b/id/${kitap.cover_i}-M.jpg`
+                    : "";
+
+                alan.innerHTML += `
+      <div class="card">
+        <img src="${kapak}">
+        <h3>${kitap.title}</h3>
+        <p>${kitap.author_name ? kitap.author_name[0] : "Yazar bilinmiyor"}</p>
+      </div>
+    `;
+            }
+        }
+
+    </script>
+
 </body>
 
 </html>
