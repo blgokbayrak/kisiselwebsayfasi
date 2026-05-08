@@ -6,99 +6,18 @@
 
     <link rel="stylesheet" href="css/style.css">
 
-    <style>
-        body {
-            font-family: Arial;
-            margin: 0;
-            display: flex;
-        }
-
-        /* SOL MENÜ */
-        .menu {
-            width: 220px;
-            background: #d9d9d9;
-            color: #333;
-            min-height: 100vh;
-            padding: 20px;
-            position: fixed;
-            top: 0;
-            right: 0;
-        }
-
-        .menu button {
-            display: block;
-            margin: 20px 0;
-            padding: 14px;
-            width: 100%;
-            background: #f2f2f2;
-            color: #333;
-            border: 1px solid #aaa;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        /* SAĞ ALAN */
-        .icerik {
-            flex: 1;
-            margin-right: 260px;
-            padding: 100px 20px 20px 20px;
-        }
-
-
-        /* KARTLAR */
-        .card {
-            display: inline-block;
-            width: 200px;
-            margin: 15px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 12px;
-            text-align: center;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .card img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        header,
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 260px;
-            height: 70px;
-            background: #f7eaf2;
-            display: flex;
-            align-items: center;
-            z-index: 10;
-            justify-content: space-between;
-            padding: 0 20px;
-        }
-
-        .card img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
-    </style>
 </head>
 
 <body>
     <div class="konteynir">
 
         <nav>
-            <h1>Ilgi Alanlarim Sayfasi</h1>
 
             <a href="index.html">Hakkımda</a> |
             <a href="ozgecmis.html">Özgeçmiş</a> |
             <a href="sehrim.html">Şehrim</a> |
             <a href="mirasimiz.html">Takımımız</a> |
-            <a href="ilgi.html">İlgi Alanlarım</a> |
+            <a href="ilgialanlarim.html">İlgi Alanlarım</a> |
             <a href="iletisim.html">İletişim</a> |
             <a href="login.html">Login</a>
         </nav>
@@ -106,26 +25,48 @@
 
 
 
-    <div class="menu">
-        <button onclick="filmleriGetir()">🎬 Dizi / Film</button>
-        <button onclick="yerleriGoster()">🌍 Yolculuk</button>
-        <button onclick="kitaplariGetir()">📚 Kitap</button>
+    <div class="ilgi-container">
+        <div class="menu2">
+            <button onclick="filmleriGetir()">🎬 Dizi / Film</button>
+            <button onclick="yerleriGoster()">🌍 Yolculuk</button>
+            <button onclick="kitaplariGetir()">📚 Kitap</button>
+        </div>
+
+        <div id="icerik"></div>
     </div>
 
-    <div class="icerik" id="icerik">
-        <h1>Hoşgeldin 👋</h1>
-    </div>
 
     <script>
 
         // 🎬 FİLMLER
+
         const filmListem = [
-            "merlin",
-            "brooklyn nine nine",
-            "sahtekar",
-            "fight club",
-            "green book",
-            "me before you"
+            { id: 3580, tip: "movie" },   // Sahtekar (film)
+            { id: 7225, tip: "tv" },      // Merlin (dizi)
+
+            { id: 48891, tip: "tv" },      // Brooklyn Nine-Nine (dizi)
+            { id: 46952, tip: "tv" },      // The Blacklist (dizi)
+            { id: 7225, tip: "tv" },      // Merlin (dizi)
+            { id: 7225, tip: "tv" },      // Merlin (dizi)
+            { id: 7225, tip: "tv" },      // Merlin (dizi)
+            { id: 7225, tip: "tv" },      // Merlin (dizi)
+            { id: 7225, tip: "tv" },      // Merlin (dizi)
+
+            { id: 490132, tip: "movie" },   // Yeşil Rehber (film)
+            { id: 296096, tip: "movie" },   // Senden Önce Ben (film)
+            { id: 3580, tip: "movie" },   // Sahtekar (film)
+            { id: 3580, tip: "movie" },   // Sahtekar (film)
+            { id: 3580, tip: "movie" },   // Sahtekar (film)
+            { id: 3580, tip: "movie" },   // Sahtekar (film)
+            { id: 3580, tip: "movie" },   // Sahtekar (film)
+            { id: 3580, tip: "movie" },   // Sahtekar (film)
+            { id: 3580, tip: "movie" },   // Sahtekar (film)
+            { id: 3580, tip: "movie" },   // Sahtekar (film)
+            { id: 3580, tip: "movie" },   // Sahtekar (film)
+
+
+
+
         ];
 
         async function filmleriGetir() {
@@ -133,25 +74,21 @@
             const alan = document.getElementById("icerik");
             alan.innerHTML = "<h2>🎬 Sevdiğim Film & Diziler</h2>";
 
-            for (let filmAdi of filmListem) {
-
-                const url = `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&query=${filmAdi}`;
-
+            for (let item of filmListem) {
+                const url = `https://api.themoviedb.org/3/${item.tip}/${item.id}?api_key=${apiKey}`;
                 const cevap = await fetch(url);
                 const veri = await cevap.json();
 
-                const film = veri.results[0];
-
-                const poster = film.poster_path
-                    ? "https://image.tmdb.org/t/p/w500" + film.poster_path
+                const poster = veri.poster_path
+                    ? "https://image.tmdb.org/t/p/w500" + veri.poster_path
                     : "";
 
                 alan.innerHTML += `
-      <div class="card">
-        <img src="${poster}">
-        <h3>${film.title || film.name}</h3>
-        <p>⭐ ${film.vote_average}</p>
-      </div>
+        <div class="card">
+            <img src="${poster}">
+            <h3>${veri.title || veri.name}</h3>
+            <p>⭐ ${veri.vote_average}</p>
+        </div>
     `;
             }
         }
