@@ -51,6 +51,10 @@
             { id: 490132, tip: "movie" },   // Yeşil Rehber (film)
             { id: 296096, tip: "movie" },   // Senden Önce Ben (film)
 
+            { id: 13804, tip: "movie" },   // fast and furious
+            { id: 67070, tip: "tv" },   // fleabag
+            { id: 65143, tip: "tv" },      // Güneşin Torunları
+
 
 
 
@@ -103,55 +107,50 @@
     `;
             });
         }
-
-        // 📚 KİTAPLAR
         const kitapListem = [
-            "icatlarım ve hayatım tesla",
-            "bugünü yaşama arzusu yalom",
-            "yalnızız peyami safa",
-            "bozkır çehov",
-            "ellerin zamanlarla dolu paul celan",
-            "dava kafka",
-            "doğu yolculuğu hesse",
-            "insanın anlam arayışı frankl",
-            "fareler ve insanlar steinbeck"
+            { eser: "İcatlarım ve Hayatım", yazar: "Nikola Tesla" },
+            { eser: "Bugünü Yaşama Arzusu", yazar: "Irvin Yalom" },
+            { eser: "Yalnızız", yazar: "Peyami Safa" },
+            { eser: "7.Kogus", yazar: "Anton Çehov" },
+            { eser: "Ellerin Zamanlarla Dolu", yazar: "Paul Celan" },
+            { eser: "Dava", yazar: "Franz Kafka" },
+            { eser: "Doğu Yolculuğu", yazar: "Hermann Hesse" },
+            { eser: "İnsanın Anlam Arayışı", yazar: "Viktor Frankl" },
+            { eser: "Fareler ve İnsanlar", yazar: "John Steinbeck" }
         ];
 
         async function kitaplariGetir() {
             const alan = document.getElementById("icerik");
+
             alan.innerHTML = "<h2>📚 Sevdiğim Kitaplar</h2>";
 
-            const kitapListem = [
-                "icatlarım ve hayatım tesla",
-                "bugünü yaşama arzusu yalom",
-                "yalnızız peyami safa",
-                "bozkır çehov",
-                "ellerin zamanlarla dolu paul celan",
-                "dava kafka",
-                "doğu yolculuğu hesse",
-                "insanın anlam arayışı frankl",
-                "fareler ve insanlar steinbeck"
-            ];
+            for (let kitapBilgi of kitapListem) {
 
-            for (let kitapAdi of kitapListem) {
-                const url = "https://openlibrary.org/search.json?q=" + encodeURIComponent(kitapAdi);
+                // yazar + eser şeklinde arama
+                const arama = `${kitapBilgi.eser} ${kitapBilgi.yazar}`;
+
+                const url =
+                    "https://openlibrary.org/search.json?q=" +
+                    encodeURIComponent(arama);
+
                 const cevap = await fetch(url);
                 const veri = await cevap.json();
+
                 const kitap = veri.docs[0];
 
                 if (!kitap) continue;
 
                 const kapak = kitap.cover_i
                     ? `https://covers.openlibrary.org/b/id/${kitap.cover_i}-M.jpg`
-                    : "";
+                    : "https://via.placeholder.com/150x220?text=Kapak+Yok";
 
                 alan.innerHTML += `
-      <div class="card">
-        <img src="${kapak}">
-        <h3>${kitap.title}</h3>
-        <p>${kitap.author_name ? kitap.author_name[0] : "Yazar bilinmiyor"}</p>
-      </div>
-    `;
+            <div class="card">
+                <img src="${kapak}">
+                <h3>${kitapBilgi.eser}</h3>
+                <p>${kitapBilgi.yazar}</p>
+            </div>
+        `;
             }
         }
 
