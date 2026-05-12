@@ -1,0 +1,248 @@
+/* 
+   İLETİŞİM SAYFASI - iletisim.css
+ */
+
+body {
+    display: block !important;
+    background-color: #EEDEDC !important;
+}
+
+.iletisim-sayfa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #EEDEDC;
+    padding: 30px 20px 60px;
+    font-family: Arial, sans-serif;
+    color: #362B1D;
+}
+
+.form-baslik {
+    text-align: center;
+    margin: 20px 0 28px;
+}
+
+.form-baslik h1 {
+    font-size: 2rem;
+    color: #362B1D;
+    margin-bottom: 6px;
+}
+
+.form-baslik p {
+    color: #6b5c50;
+    font-size: 0.97rem;
+}
+
+.form-kutusu {
+    width: 100%;
+    max-width: 640px;
+    background: #f8c8dc;
+    border-radius: 20px;
+    padding: 35px 40px;
+    box-shadow: 0 10px 20px rgba(204, 125, 200, 0.2);
+    box-sizing: border-box;
+}
+
+.alan {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.alan>label {
+    font-size: 0.88rem;
+    font-weight: bold;
+    color: #523352;
+}
+
+.alan input[type="text"],
+.alan select,
+.alan textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    background-color: #f8fafc;
+    color: #362B1D;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.alan input[type="text"]:focus,
+.alan select:focus,
+.alan textarea:focus {
+    outline: none;
+    border-color: #e8b5c7;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(232, 154, 181, 0.25);
+}
+
+.alan textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.secim-grubu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.secim-etiket {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 16px;
+    border: 1.5px solid #e0b8cc;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #362B1D;
+    background: #fde8f0;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.secim-etiket:hover {
+    border-color: #523352;
+    background: #f8c8dc;
+}
+
+.secim-etiket input[type="radio"],
+.secim-etiket input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    accent-color: #523352;
+    cursor: pointer;
+    margin: 0;
+}
+
+.kvkk-alan {
+    border-top: 1px dashed #e0b8cc;
+    padding-top: 16px;
+    margin-top: 4px;
+}
+
+.kvkk-etiket {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    color: #5a4a3a;
+    line-height: 1.5;
+    font-weight: normal;
+}
+
+.kvkk-etiket input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    accent-color: #523352;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.buton-grubu {
+    display: flex;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.btn-native,
+.btn-vue {
+    flex: 1;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.93rem;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.btn-native {
+    background-color: #f1a2db;
+}
+
+.btn-vue {
+    background-color: #e5ace5;
+}
+
+.btn-native:hover,
+.btn-vue:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.sonuc-kutusu {
+    margin-top: 15px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.93rem;
+    font-weight: bold;
+    line-height: 1.5;
+    border-left: 5px solid;
+}
+
+.sonuc-hata {
+    background: #fff0f0;
+    border-color: #e05a5a;
+    color: #c0392b;
+}
+
+.sonuc-basari {
+    background: #f0faf4;
+    border-color: #27ae60;
+    color: #1a7a44;
+}
+
+@media (max-width: 600px) {
+    .form-kutusu {
+        padding: 25px 18px;
+    }
+
+    .buton-grubu {
+        flex-direction: column;
+    }
+
+    .secim-grubu {
+        gap: 8px;
+    }
+}
+
+.konteynir {
+    max-width: 1000px;
+    /* sayfa genişliğini maximum ayarı */
+    margin: 10px auto;
+    padding: 0;
+    border-radius: 15px;
+}
+
+
+
+nav {
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    background-color: rgb(241, 237, 237);
+
+}
+
+nav a {
+    text-decoration: none;
+    color: #523352;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #e89ab5;
+}

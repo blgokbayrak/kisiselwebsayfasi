@@ -3,15 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İletişim Formu</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/iletisim.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
 <body>
 
-    <div id="app" class="container">
-        <h1>İletişim Formu</h1>
+    <div id="app" class="iletisim-sayfa">
+
+        <!-- NAV -->
         <div class="konteynir">
             <nav>
                 <a href="index.html">Hakkımda</a> |
@@ -24,55 +26,121 @@
             </nav>
         </div>
 
-        <form id="contactForm" novalidate>
-            <label>Ad Soyad</label>
-            <input type="text" id="ad" v-model="form.ad">
+        <!-- BAŞLIK -->
+        <div class="form-baslik">
+            <h1>İletişim Formu</h1>
+            <p>Aşağıdaki formu doldurarak bize ulaşabilirsiniz.</p>
+        </div>
 
-            <label>E-posta</label>
-            <input type="text" id="email" v-model="form.email">
+        <!-- FORM KUTUSU -->
+        <div class="form-kutusu">
+            <form id="contactForm" novalidate>
 
-            <label>Telefon</label>
-            <input type="text" id="telefon" v-model="form.telefon">
+                <!-- Ad Soyad -->
+                <div class="alan">
+                    <label for="ad">Ad Soyad</label>
+                    <input type="text" id="ad" v-model="form.ad" placeholder="Adınızı ve soyadınızı giriniz">
+                </div>
 
-            <label>Konu</label>
-            <select id="konu" v-model="form.konu">
-                <option value="">Seçiniz</option>
-                <option value="onerı">Öneri</option>
-                <option value="sikayet">Şikayet</option>
-                <option value="bilgi">Bilgi</option>
-            </select>
+                <!-- E-posta -->
+                <div class="alan">
+                    <label for="email">E-posta</label>
+                    <input type="text" id="email" v-model="form.email" placeholder="ornek@mail.com">
+                </div>
 
-            <label>Cinsiyet</label>
-            <div class="group">
-                <label><input type="radio" name="cinsiyet" value="Kadın" v-model="form.cinsiyet"> Kadın</label>
-                <label><input type="radio" name="cinsiyet" value="Erkek" v-model="form.cinsiyet"> Erkek</label>
-            </div>
+                <!-- Telefon -->
+                <div class="alan">
+                    <label for="telefon">Telefon</label>
+                    <input type="text" id="telefon" v-model="form.telefon" placeholder="05xxxxxxxxx (10-11 hane)">
+                </div>
 
-            <label>İletişim Tercihi</label>
-            <div class="group">
-                <label><input type="checkbox" value="E-posta" v-model="form.tercihler"> E-posta</label>
-                <label><input type="checkbox" value="Telefon" v-model="form.tercihler"> Telefon</label>
-            </div>
+                <!-- Konu (select) -->
+                <div class="alan">
+                    <label for="konu">Konu</label>
+                    <select id="konu" v-model="form.konu">
+                        <option value="">-- Seçiniz --</option>
+                        <option value="oneri">Öneri</option>
+                        <option value="sikayet">Şikayet</option>
+                        <option value="bilgi">Bilgi Talebi</option>
+                        <option value="diger">Diğer</option>
+                    </select>
+                </div>
 
-            <label>Mesaj</label>
-            <textarea id="mesaj" v-model="form.mesaj"></textarea>
+                <!-- Cinsiyet (radio) -->
+                <div class="alan">
+                    <label>Cinsiyet</label>
+                    <div class="secim-grubu">
+                        <label class="secim-etiket">
+                            <input type="radio" name="cinsiyet" value="Kadın" v-model="form.cinsiyet">
+                            <span>Kadın</span>
+                        </label>
+                        <label class="secim-etiket">
+                            <input type="radio" name="cinsiyet" value="Erkek" v-model="form.cinsiyet">
+                            <span>Erkek</span>
+                        </label>
+                        <label class="secim-etiket">
+                            <input type="radio" name="cinsiyet" value="Belirtmek İstemiyorum" v-model="form.cinsiyet">
+                            <span>Belirtmek İstemiyorum</span>
+                        </label>
+                    </div>
+                </div>
 
-            <label class="agreement">
-                <input type="checkbox" id="onay" v-model="form.onay">
-                KVKK metnini okudum ve kabul ediyorum.
-            </label>
+                <!-- İletişim Tercihi (checkbox) -->
+                <div class="alan">
+                    <label>İletişim Tercihi</label>
+                    <div class="secim-grubu">
+                        <label class="secim-etiket">
+                            <input type="checkbox" value="E-posta" v-model="form.tercihler">
+                            <span>E-posta</span>
+                        </label>
+                        <label class="secim-etiket">
+                            <input type="checkbox" value="Telefon" v-model="form.tercihler">
+                            <span>Telefon</span>
+                        </label>
+                        <label class="secim-etiket">
+                            <input type="checkbox" value="SMS" v-model="form.tercihler">
+                            <span>SMS</span>
+                        </label>
+                    </div>
+                </div>
 
-            <div class="buttons">
-                <button type="button" onclick="nativeKontrol()">Native JavaScript ile Kontrol Et</button>
-                <button type="button" @click="vueKontrol">Vue.js ile Kontrol Et</button>
-            </div>
-        </form>
+                <!-- Mesaj (textarea) -->
+                <div class="alan">
+                    <label for="mesaj">Mesaj</label>
+                    <textarea id="mesaj" v-model="form.mesaj" placeholder="Mesajınızı buraya yazınız..."></textarea>
+                </div>
 
-        <p id="nativeSonuc" class="result"></p>
-        <p class="result">{{ vueSonuc }}</p>
+                <!-- KVKK (checkbox) -->
+                <div class="alan kvkk-alan">
+                    <label class="kvkk-etiket">
+                        <input type="checkbox" id="onay" v-model="form.onay">
+                        <span>KVKK metnini okudum ve kabul ediyorum.</span>
+                    </label>
+                </div>
+
+                <!-- BUTONLAR -->
+                <div class="buton-grubu">
+                    <button type="button" class="btn-native" onclick="nativeKontrol()">
+                        🔍 Native JS ile Kontrol Et
+                    </button>
+                    <button type="button" class="btn-vue" @click="vueKontrol">
+                        ⚡ Vue.js ile Kontrol Et
+                    </button>
+                </div>
+
+            </form>
+
+            <!-- SONUÇLAR -->
+            <div id="nativeSonuc" class="sonuc-kutusu" style="display:none;"></div>
+            <div class="sonuc-kutusu" v-if="vueSonuc" :class="vueSonucTuru">{{ vueSonuc }}</div>
+
+        </div>
     </div>
 
     <script>
+        // =====================
+        // NATIVE JAVASCRIPT
+        // =====================
         function nativeKontrol() {
             const ad = document.getElementById("ad").value.trim();
             const email = document.getElementById("email").value.trim();
@@ -87,29 +155,46 @@
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             const telefonRegex = /^[0-9]{10,11}$/;
 
-            const sonuc = document.getElementById("nativeSonuc");
+            const sonucDiv = document.getElementById("nativeSonuc");
+            sonucDiv.style.display = "block";
+
+            let mesajMetin = "";
+            let hata = false;
 
             if (!ad || !email || !telefon || !konu || !mesaj) {
-                sonuc.textContent = "Native JS: Lütfen boş alan bırakmayınız.";
+                mesajMetin = "⚠️ Native JS: Lütfen tüm zorunlu alanları doldurunuz.";
+                hata = true;
             } else if (!emailRegex.test(email)) {
-                sonuc.textContent = "Native JS: Geçerli bir e-posta adresi giriniz.";
+                mesajMetin = "⚠️ Native JS: Geçerli bir e-posta adresi giriniz.";
+                hata = true;
             } else if (!telefonRegex.test(telefon)) {
-                sonuc.textContent = "Native JS: Telefon 10 veya 11 haneli ve sadece rakamlardan oluşmalıdır.";
+                mesajMetin = "⚠️ Native JS: Telefon 10 veya 11 haneli ve yalnızca rakamlardan oluşmalıdır.";
+                hata = true;
             } else if (!cinsiyetSecili) {
-                sonuc.textContent = "Native JS: Lütfen cinsiyet seçiniz.";
+                mesajMetin = "⚠️ Native JS: Lütfen cinsiyet seçiniz.";
+                hata = true;
             } else if (tercihler.length === 0) {
-                sonuc.textContent = "Native JS: En az bir iletişim tercihi seçiniz.";
+                mesajMetin = "⚠️ Native JS: En az bir iletişim tercihi seçiniz.";
+                hata = true;
             } else if (!onay) {
-                sonuc.textContent = "Native JS: KVKK onayını işaretlemelisiniz.";
+                mesajMetin = "⚠️ Native JS: KVKK onayını işaretlemelisiniz.";
+                hata = true;
             } else {
-                sonuc.textContent = "Native JS: Form başarıyla doğrulandı.";
+                mesajMetin = "✅ Native JS: Form başarıyla doğrulandı!";
             }
+
+            sonucDiv.textContent = mesajMetin;
+            sonucDiv.className = "sonuc-kutusu " + (hata ? "sonuc-hata" : "sonuc-basari");
         }
 
+        // =====================
+        // VUE.JS
+        // =====================
         Vue.createApp({
             data() {
                 return {
                     vueSonuc: "",
+                    vueSonucTuru: "",
                     form: {
                         ad: "",
                         email: "",
@@ -127,25 +212,28 @@
                     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                     const telefonRegex = /^[0-9]{10,11}$/;
 
-                    if (
-                        !this.form.ad ||
-                        !this.form.email ||
-                        !this.form.telefon ||
-                        !this.form.konu ||
-                        !this.form.cinsiyet ||
-                        !this.form.mesaj
-                    ) {
-                        this.vueSonuc = "Vue.js: Lütfen tüm alanları doldurunuz.";
+                    if (!this.form.ad || !this.form.email || !this.form.telefon ||
+                        !this.form.konu || !this.form.mesaj) {
+                        this.vueSonuc = "⚠️ Vue.js: Lütfen tüm zorunlu alanları doldurunuz.";
+                        this.vueSonucTuru = "sonuc-hata";
                     } else if (!emailRegex.test(this.form.email)) {
-                        this.vueSonuc = "Vue.js: E-posta formatı hatalı.";
+                        this.vueSonuc = "⚠️ Vue.js: E-posta formatı hatalı.";
+                        this.vueSonucTuru = "sonuc-hata";
                     } else if (!telefonRegex.test(this.form.telefon)) {
-                        this.vueSonuc = "Vue.js: Telefon 10 veya 11 haneli ve sadece rakamlardan oluşmalıdır.";
+                        this.vueSonuc = "⚠️ Vue.js: Telefon 10 veya 11 haneli ve yalnızca rakamlardan oluşmalıdır.";
+                        this.vueSonucTuru = "sonuc-hata";
+                    } else if (!this.form.cinsiyet) {
+                        this.vueSonuc = "⚠️ Vue.js: Lütfen cinsiyet seçiniz.";
+                        this.vueSonucTuru = "sonuc-hata";
                     } else if (this.form.tercihler.length === 0) {
-                        this.vueSonuc = "Vue.js: En az bir iletişim tercihi seçiniz.";
+                        this.vueSonuc = "⚠️ Vue.js: En az bir iletişim tercihi seçiniz.";
+                        this.vueSonucTuru = "sonuc-hata";
                     } else if (!this.form.onay) {
-                        this.vueSonuc = "Vue.js: KVKK onayını kabul etmelisiniz.";
+                        this.vueSonuc = "⚠️ Vue.js: KVKK onayını kabul etmelisiniz.";
+                        this.vueSonucTuru = "sonuc-hata";
                     } else {
-                        this.vueSonuc = "Vue.js: Form başarıyla doğrulandı.";
+                        this.vueSonuc = "✅ Vue.js: Form başarıyla doğrulandı!";
+                        this.vueSonucTuru = "sonuc-basari";
                     }
                 }
             }
