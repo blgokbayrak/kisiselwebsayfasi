@@ -2,12 +2,13 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <h1>Login Sayfasi</h1>
     <div class="konteynir">
         <nav>
             <a href="index.html">Hakkımda</a> |
@@ -19,6 +20,103 @@
             <a href="login.html">Login</a>
         </nav>
     </div>
+
+
+
+    <div class="login-kart">
+        <h1>Giriş Yap</h1>
+        <p class="alt-yazi">Öğrenci bilgilerinizle giriş yapınız.</p>
+
+        <form id="loginForm" action="login.php" method="POST" novalidate>
+
+            <div class="alan">
+                <label for="kullanici">Kullanıcı Adı (E-posta)</label>
+                <input type="text" id="kullanici" name="kullanici" placeholder="b2412100001@sakarya.edu.tr">
+                <span class="hata-mesaji" id="kullanici-hata"></span>
+            </div>
+
+            <div class="alan">
+                <label for="sifre">Şifre </label>
+                <input type="password" id="sifre" name="sifre" placeholder="b2412100001">
+                <span class="hata-mesaji" id="sifre-hata"></span>
+            </div>
+
+            <div id="genel-hata" class="sonuc-kutusu sonuc-hata"></div>
+
+            <button type="submit" class="btn-giris">
+                Giriş Yap
+            </button>
+
+        </form>
+
+        <a href="index.html" class="nav-link">← Ana Sayfaya Dön</a>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            const params = new URLSearchParams(window.location.search);
+            const hata = params.get('hata');
+            if (hata) {
+                const kutu = document.getElementById('genel-hata');
+                kutu.textContent = '⚠️ ' + hata;
+                kutu.style.display = 'block';
+            }
+        });
+
+        function jsKontrol() {
+            const kullanici = document.getElementById('kullanici').value.trim();
+            const sifre = document.getElementById('sifre').value.trim();
+            const kullaniciHata = document.getElementById('kullanici-hata');
+            const sifreHata = document.getElementById('sifre-hata');
+            const genelHata = document.getElementById('genel-hata');
+
+            kullaniciHata.style.display = 'none';
+            sifreHata.style.display = 'none';
+            genelHata.style.display = 'none';
+
+            const emailRegex = /^[a-zA-Z0-9]{10,12}@sakarya\.edu\.tr$/;
+
+            let gecerli = true;
+
+            if (!kullanici) {
+                kullaniciHata.textContent = 'Kullanıcı adı boş bırakılamaz.';
+                kullaniciHata.style.display = 'block';
+                gecerli = false;
+            } else if (!emailRegex.test(kullanici)) {
+                kullaniciHata.textContent = 'Geçerli bir Sakarya Üniversitesi e-posta adresi giriniz. (örn: b2412100001@sakarya.edu.tr)';
+                kullaniciHata.style.display = 'block';
+                gecerli = false;
+            }
+
+            if (!sifre) {
+                sifreHata.textContent = 'Şifre boş bırakılamaz.';
+                sifreHata.style.display = 'block';
+                gecerli = false;
+            }
+            const ogrenciNo = kullanici.split('@')[0];
+
+            if (sifre && gecerli && sifre !== ogrenciNo) {
+                sifreHata.textContent = 'Şifre yanlış, tekrar deneyiniz!';
+                sifreHata.style.display = 'block';
+                gecerli = false;
+            }
+
+            if (!gecerli) return false;
+
+            return true;
+        }
+    </script>
+
+
+
+
+
+
+
+
 </body>
+
+
+
 
 </html>

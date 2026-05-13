@@ -64,7 +64,7 @@
         async function filmleriGetir() {
             const apiKey = "90e9ba554b8bd92ee04333f722479f8d";
             const alan = document.getElementById("icerik");
-            alan.innerHTML = "<h2>🎬 Sevdiğim Film & Diziler</h2>";
+            alan.innerHTML = "<h2>🎬 Sevdiğim Filmler & Diziler</h2>";
 
             for (let item of filmListem) {
                 const url = `https://api.themoviedb.org/3/${item.tip}/${item.id}?api_key=${apiKey}`;

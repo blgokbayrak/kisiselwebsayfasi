@@ -1,5 +1,5 @@
 /* 
-   İLETİŞİM SAYFASI - iletisim.css
+   İLETİŞİM SAYFASI 
  */
 
 body {
@@ -35,8 +35,8 @@ body {
 }
 
 .form-kutusu {
-    width: 100%;
-    max-width: 640px;
+    width: 60%;
+    max-width: 60%;
     background: #f8c8dc;
     border-radius: 20px;
     padding: 35px 40px;
@@ -207,6 +207,8 @@ body {
 @media (max-width: 600px) {
     .form-kutusu {
         padding: 25px 18px;
+        width: 95%;
+        max-width: 95%;
     }
 
     .buton-grubu {
@@ -222,8 +224,7 @@ body {
     max-width: 1000px;
     /* sayfa genişliğini maximum ayarı */
     margin: 10px auto;
-    padding: 0;
-    border-radius: 15px;
+    width: 80%;
 }
 
 
@@ -233,6 +234,7 @@ nav {
     border-radius: 15px;
     margin-bottom: 20px;
     background-color: rgb(241, 237, 237);
+    max-width: 1000px;
 
 }
 

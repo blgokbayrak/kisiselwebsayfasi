@@ -121,10 +121,10 @@
                 <!-- BUTONLAR -->
                 <div class="buton-grubu">
                     <button type="button" class="btn-native" onclick="nativeKontrol()">
-                        🔍 Native JS ile Kontrol Et
+                        Native JS ile Kontrol Et
                     </button>
                     <button type="button" class="btn-vue" @click="vueKontrol">
-                        ⚡ Vue.js ile Kontrol Et
+                        Vue.js ile Kontrol Et
                     </button>
                 </div>
 
@@ -138,9 +138,9 @@
     </div>
 
     <script>
-        // =====================
+        // 
         // NATIVE JAVASCRIPT
-        // =====================
+        // 
         function nativeKontrol() {
             const ad = document.getElementById("ad").value.trim();
             const email = document.getElementById("email").value.trim();
@@ -187,9 +187,9 @@
             sonucDiv.className = "sonuc-kutusu " + (hata ? "sonuc-hata" : "sonuc-basari");
         }
 
-        // =====================
+
         // VUE.JS
-        // =====================
+
         Vue.createApp({
             data() {
                 return {

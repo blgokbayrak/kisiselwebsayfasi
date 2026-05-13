@@ -2,6 +2,7 @@
     max-width: 1000px;
     /* sayfa genişliğini maximum ayarı */
     margin: 10px auto;
+    width: 80%;
 }
 
 /* tüm kartların düzeni */
@@ -334,7 +335,7 @@ main {
 }
 
 .cv article {
-    background-color: #ded8de;
+    background-color: rgb(212, 210, 210);
     margin-bottom: 25px;
     padding: 25px;
     border-radius: 8px;
@@ -345,10 +346,13 @@ h2 {
     color: #232222;
 }
 
+/* öz geçmiş */
+
+
 footer {
     /* telif hakkı yazısı en alttaki */
     text-align: center;
-    background-color: #f5e9e9;
+    background-color: #eedfe4;
     /* arka planı beyaz */
 }
 
@@ -373,9 +377,7 @@ body {
 }
 
 
-/* ===========================
-   LAYOUT
-=========================== */
+/* LAYOUT */
 .container {
     max-width: 1100px;
     width: 100%;
@@ -388,11 +390,17 @@ body {
     padding: 20px 0;
 }
 
+
+
+
+
+/* ŞEHRİM SAYFASINDAKİ SLİDER */
+/* slider renkleri düzeni */
 .slider-wrapper {
     width: 60%;
     margin: 25px auto;
     padding: 20px;
-    background: #959393;
+    background: rgb(212, 210, 210);
     border-radius: 25px;
 }
 
@@ -403,9 +411,7 @@ body {
     overflow: hidden;
 }
 
-/* ===========================
-   CARD ITEM & LINK
-=========================== */
+/*  CARD ITEM & LINK */
 .card-list {
     list-style: none;
 }
@@ -414,6 +420,7 @@ body {
     list-style: none;
 }
 
+/* slider içerisideki kartlar */
 .card-list .card-item .card-link {
     user-select: none;
     display: block;
@@ -427,16 +434,14 @@ body {
 }
 
 .card-list .card-item .card-link:hover {
-    border-color: #bdc1d7;
+    border-color: #f8c8dc;
 }
 
 .card-list .card-item .card-link:active {
     cursor: grabbing;
 }
 
-/* ===========================
-   CARD IMAGE
-=========================== */
+/*  CARD IMAGE */
 .card-image {
     width: 100%;
     height: 200px;
@@ -444,9 +449,7 @@ body {
     border-radius: 10px;
 }
 
-/* ===========================
-   BADGE
-=========================== */
+/* BADGE */
 .card-link .badge {
     margin: 16px 0 18px;
     padding: 8px 16px;
@@ -454,22 +457,19 @@ body {
     font-weight: 500;
     width: fit-content;
     border-radius: 50px;
-    color: #fbcefa;
-    background: #ffddfe;
+    color: #0b0b0b;
+    background: #f8c8dc;
 }
 
-/* ===========================
-   CARD TITLE
-=========================== */
+/* kartın içerindeki başlıklar  */
 .card-link .card-title {
     font-size: 1.19rem;
-    color: #362B1D;
-    font-weight: 600;
+    color: rgb(23, 22, 22);
+    font-weight: 800;
+    /* yazı kalınlık */
 }
 
-/* ===========================
-   CARD BUTTON
-=========================== */
+/* kartların altındaki ok işareti butonu */
 .card-link .card-button {
     height: 35px;
     width: 35px;
@@ -477,7 +477,7 @@ body {
     margin: 30px 0 5px;
     border: 2px solid #c7a7b6;
     background: transparent;
-    color: #c7a7b6;
+    color: #12111215;
     cursor: pointer;
     transform: rotate(-45deg);
     transition: 0.4s ease;
@@ -491,19 +491,17 @@ body {
 
 .card-link:active .card-button,
 .card-button:active {
-    background: #b98fa4;
+    background: #f8c8dc;
     color: #fff;
     border-color: #b98fa4;
 }
 
-/* ===========================
-   SWIPER
-=========================== */
+/*   SWIPER */
 .swiper-pagination-bullet {
     height: 13px;
     width: 13px;
     opacity: 0.5;
-    background: #B68680;
+    background: #140301;
 }
 
 .swiper-pagination-bullet-active {
@@ -521,9 +519,7 @@ body {
     margin-top: -35px;
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
+/*  RESPONSIVE */
 @media (max-width: 768px) {
     .container {
         padding: 30px 20px;
@@ -541,14 +537,14 @@ body {
     width: 260px;
     margin: 30px auto 10px;
     padding: 12px;
-    background: #666566;
+    background: rgb(212, 210, 210);
     border-radius: 15px;
     text-align: center;
 }
 
 .sehrim-baslik h1 {
     font-size: 24px;
-    color: #efcad6;
+    color: #0d4a17;
 }
 
 
@@ -558,10 +554,10 @@ body {
     min-height: 220px;
     margin: 40px auto;
     padding: 35px;
-    background: #e9cad7;
+    background: #f8c8dc;
     border-radius: 30px;
-    font-size: 20px;
-    line-height: 1.7;
+    font-size: 17px;
+    line-height: 1.5;
     color: #111;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
@@ -586,7 +582,7 @@ body {
     text-align: center;
     text-decoration: none;
     color: #383737;
-    transition: 0.3s;
+    transition: 0.7s;
 }
 
 .sehrim-kart:hover {
@@ -644,6 +640,11 @@ body {
     display: flex;
     gap: 30px;
     padding: 40px;
+    justify-content: center;
+    /* yatayda ortala */
+    align-items: flex-start;
+    /* dikeyde üstten hizala */
+    min-height: 60vh;
 }
 
 .menu2 {
@@ -920,4 +921,124 @@ body {
     .secim-grubu {
         gap: 8px;
     }
+}
+
+
+
+
+/* login sayfası */
+
+.login-kart {
+    width: 100%;
+    max-width: 420px;
+    background: #f8c8dc;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 10px 20px rgba(204, 125, 200, 0.2);
+    margin: 40px auto;
+}
+
+.login-kart h1 {
+    text-align: center;
+    color: #362B1D;
+    font-size: 1.7rem;
+    margin: 0 0 8px 0;
+}
+
+.alt-yazi {
+    text-align: center;
+    color: #6b5c50;
+    font-size: 0.88rem;
+    margin-bottom: 28px;
+}
+
+.alan {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.alan label {
+    font-size: 0.88rem;
+    font-weight: bold;
+    color: #523352;
+}
+
+.alan input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    background-color: #f8fafc;
+    color: #362B1D;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.alan input:focus {
+    outline: none;
+    border-color: #e8b5c7;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(232, 154, 181, 0.25);
+}
+
+.hata-mesaji {
+    font-size: 0.83rem;
+    color: #c0392b;
+    margin-top: 4px;
+    display: none;
+}
+
+.btn-giris {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    background-color: #c06080;
+    transition: transform 0.2s, opacity 0.2s;
+    margin-top: 8px;
+}
+
+.btn-giris:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.sonuc-kutusu {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    line-height: 1.5;
+    border-left: 5px solid;
+    display: none;
+}
+
+.sonuc-hata {
+    background: #fff0f0;
+    border-color: #e05a5a;
+    color: #c0392b;
+}
+
+.nav-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: #523352;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
 }
