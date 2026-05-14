@@ -34,24 +34,23 @@
 
         <!-- FORM KUTUSU -->
         <div class="form-kutusu">
-            <form id="contactForm" novalidate>
-
+            <form id="contactForm" action="iletisim.php" method="POST" novalidate>
                 <!-- Ad Soyad -->
                 <div class="alan">
                     <label for="ad">Ad Soyad</label>
-                    <input type="text" id="ad" v-model="form.ad" placeholder="Adınızı ve soyadınızı giriniz">
+                    <form id="contactForm" action="iletisim.php" method="POST" novalidate>
                 </div>
 
                 <!-- E-posta -->
                 <div class="alan">
                     <label for="email">E-posta</label>
-                    <input type="text" id="email" v-model="form.email" placeholder="ornek@mail.com">
+                    <input type="text" id="email" name="email" v-model="form.email" placeholder="ornek@mail.com">
                 </div>
 
                 <!-- Telefon -->
                 <div class="alan">
                     <label for="telefon">Telefon</label>
-                    <input type="text" id="telefon" v-model="form.telefon" placeholder="05xxxxxxxxx (10-11 hane)">
+                    <input type="text" id="email" name="email" v-model="form.email" placeholder="ornek@mail.com">
                 </div>
 
                 <!-- Konu (select) -->
@@ -90,15 +89,15 @@
                     <label>İletişim Tercihi</label>
                     <div class="secim-grubu">
                         <label class="secim-etiket">
-                            <input type="checkbox" value="E-posta" v-model="form.tercihler">
+                            <input type="checkbox" name="tercihler[]" value="E-posta" v-model="form.tercihler">
                             <span>E-posta</span>
                         </label>
                         <label class="secim-etiket">
-                            <input type="checkbox" value="Telefon" v-model="form.tercihler">
+                            <input type="checkbox" name="tercihler[]" value="E-posta" v-model="form.tercihler">
                             <span>Telefon</span>
                         </label>
                         <label class="secim-etiket">
-                            <input type="checkbox" value="SMS" v-model="form.tercihler">
+                            <input type="checkbox" name="tercihler[]" value="Telefon" v-model="form.tercihler">
                             <span>SMS</span>
                         </label>
                     </div>
@@ -107,14 +106,15 @@
                 <!-- Mesaj (textarea) -->
                 <div class="alan">
                     <label for="mesaj">Mesaj</label>
-                    <textarea id="mesaj" v-model="form.mesaj" placeholder="Mesajınızı buraya yazınız..."></textarea>
+                    <textarea id="mesaj" name="mesaj" v-model="form.mesaj"
+                        placeholder="Mesajınızı buraya yazınız..."></textarea>
                 </div>
 
                 <!-- KVKK (checkbox) -->
                 <div class="alan kvkk-alan">
                     <label class="kvkk-etiket">
-                        <input type="checkbox" id="onay" v-model="form.onay">
-                        <span>KVKK metnini okudum ve kabul ediyorum.</span>
+                        <input type="checkbox" id="onay" name="onay" v-model="form.onay"> <span>KVKK metnini okudum ve
+                            kabul ediyorum.</span>
                     </label>
                 </div>
 
@@ -125,6 +125,10 @@
                     </button>
                     <button type="button" class="btn-vue" @click="vueKontrol">
                         Vue.js ile Kontrol Et
+                    </button>
+
+                    <button type="submit" class="btn-gonder">
+                        Formu PHP'ye Gönder
                     </button>
                 </div>
 
