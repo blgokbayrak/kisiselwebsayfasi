@@ -9,7 +9,7 @@ Projede aşağıdaki sayfalar bulunmaktadır:
 - Hakkımda
 - Özgeçmiş
 - Şehrim
-- Takımımız / Mirasımız
+- Takımımız 
 - İlgi Alanlarım
 - İletişim Formu
 - Login Sistemi
