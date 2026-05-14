@@ -27,8 +27,7 @@
         <h1>Giriş Yap</h1>
         <p class="alt-yazi">Öğrenci bilgilerinizle giriş yapınız.</p>
 
-        <form id="loginForm" action="login.php" method="POST" novalidate>
-
+        <form id="loginForm" action="login.php" method="POST" onsubmit="return jsKontrol()" novalidate>
             <div class="alan">
                 <label for="kullanici">Kullanıcı Adı (E-posta)</label>
                 <input type="text" id="kullanici" name="kullanici" placeholder="b2412100001@sakarya.edu.tr">
