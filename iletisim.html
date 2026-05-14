@@ -13,7 +13,6 @@
 
     <div id="app" class="iletisim-sayfa">
 
-        <!-- NAV -->
         <div class="konteynir">
             <nav>
                 <a href="index.html">Hakkımda</a> |
@@ -26,37 +25,33 @@
             </nav>
         </div>
 
-        <!-- BAŞLIK -->
         <div class="form-baslik">
             <h1>İletişim Formu</h1>
             <p>Aşağıdaki formu doldurarak bize ulaşabilirsiniz.</p>
         </div>
 
-        <!-- FORM KUTUSU -->
         <div class="form-kutusu">
             <form id="contactForm" action="iletisim.php" method="POST" novalidate>
-                <!-- Ad Soyad -->
+
                 <div class="alan">
                     <label for="ad">Ad Soyad</label>
-                    <form id="contactForm" action="iletisim.php" method="POST" novalidate>
+                    <input type="text" id="ad" name="ad" v-model="form.ad" placeholder="Adınızı ve soyadınızı giriniz">
                 </div>
 
-                <!-- E-posta -->
                 <div class="alan">
                     <label for="email">E-posta</label>
                     <input type="text" id="email" name="email" v-model="form.email" placeholder="ornek@mail.com">
                 </div>
 
-                <!-- Telefon -->
                 <div class="alan">
                     <label for="telefon">Telefon</label>
-                    <input type="text" id="email" name="email" v-model="form.email" placeholder="ornek@mail.com">
+                    <input type="text" id="telefon" name="telefon" v-model="form.telefon"
+                        placeholder="05xxxxxxxxx (10-11 hane)">
                 </div>
 
-                <!-- Konu (select) -->
                 <div class="alan">
                     <label for="konu">Konu</label>
-                    <select id="konu" v-model="form.konu">
+                    <select id="konu" name="konu" v-model="form.konu">
                         <option value="">-- Seçiniz --</option>
                         <option value="oneri">Öneri</option>
                         <option value="sikayet">Şikayet</option>
@@ -65,7 +60,6 @@
                     </select>
                 </div>
 
-                <!-- Cinsiyet (radio) -->
                 <div class="alan">
                     <label>Cinsiyet</label>
                     <div class="secim-grubu">
@@ -73,10 +67,12 @@
                             <input type="radio" name="cinsiyet" value="Kadın" v-model="form.cinsiyet">
                             <span>Kadın</span>
                         </label>
+
                         <label class="secim-etiket">
                             <input type="radio" name="cinsiyet" value="Erkek" v-model="form.cinsiyet">
                             <span>Erkek</span>
                         </label>
+
                         <label class="secim-etiket">
                             <input type="radio" name="cinsiyet" value="Belirtmek İstemiyorum" v-model="form.cinsiyet">
                             <span>Belirtmek İstemiyorum</span>
@@ -84,7 +80,6 @@
                     </div>
                 </div>
 
-                <!-- İletişim Tercihi (checkbox) -->
                 <div class="alan">
                     <label>İletişim Tercihi</label>
                     <div class="secim-grubu">
@@ -92,59 +87,56 @@
                             <input type="checkbox" name="tercihler[]" value="E-posta" v-model="form.tercihler">
                             <span>E-posta</span>
                         </label>
-                        <label class="secim-etiket">
-                            <input type="checkbox" name="tercihler[]" value="E-posta" v-model="form.tercihler">
-                            <span>Telefon</span>
-                        </label>
+
                         <label class="secim-etiket">
                             <input type="checkbox" name="tercihler[]" value="Telefon" v-model="form.tercihler">
+                            <span>Telefon</span>
+                        </label>
+
+                        <label class="secim-etiket">
+                            <input type="checkbox" name="tercihler[]" value="SMS" v-model="form.tercihler">
                             <span>SMS</span>
                         </label>
                     </div>
                 </div>
 
-                <!-- Mesaj (textarea) -->
                 <div class="alan">
                     <label for="mesaj">Mesaj</label>
                     <textarea id="mesaj" name="mesaj" v-model="form.mesaj"
                         placeholder="Mesajınızı buraya yazınız..."></textarea>
                 </div>
 
-                <!-- KVKK (checkbox) -->
                 <div class="alan kvkk-alan">
                     <label class="kvkk-etiket">
-                        <input type="checkbox" id="onay" name="onay" v-model="form.onay"> <span>KVKK metnini okudum ve
-                            kabul ediyorum.</span>
+                        <input type="checkbox" id="onay" name="onay" v-model="form.onay">
+                        <span>KVKK metnini okudum ve kabul ediyorum.</span>
                     </label>
                 </div>
 
-                <!-- BUTONLAR -->
                 <div class="buton-grubu">
                     <button type="button" class="btn-native" onclick="nativeKontrol()">
                         Native JS ile Kontrol Et
                     </button>
+
                     <button type="button" class="btn-vue" @click="vueKontrol">
                         Vue.js ile Kontrol Et
                     </button>
 
-                    <button type="submit" class="btn-gonder">
+                    <button type="button" class="btn-gonder" onclick="formuGonder()">
                         Formu PHP'ye Gönder
                     </button>
                 </div>
 
             </form>
 
-            <!-- SONUÇLAR -->
             <div id="nativeSonuc" class="sonuc-kutusu" style="display:none;"></div>
-            <div class="sonuc-kutusu" v-if="vueSonuc" :class="vueSonucTuru">{{ vueSonuc }}</div>
-
+            <div class="sonuc-kutusu" v-if="vueSonuc" :class="vueSonucTuru">
+                {{ vueSonuc }}
+            </div>
         </div>
     </div>
 
     <script>
-        // 
-        // NATIVE JAVASCRIPT
-        // 
         function nativeKontrol() {
             const ad = document.getElementById("ad").value.trim();
             const email = document.getElementById("email").value.trim();
@@ -154,7 +146,7 @@
             const onay = document.getElementById("onay").checked;
 
             const cinsiyetSecili = document.querySelector('input[name="cinsiyet"]:checked');
-            const tercihler = document.querySelectorAll('input[type="checkbox"][value]:checked');
+            const tercihler = document.querySelectorAll('input[type="checkbox"][name="tercihler[]"]:checked');
 
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             const telefonRegex = /^[0-9]{10,11}$/;
@@ -189,10 +181,17 @@
 
             sonucDiv.textContent = mesajMetin;
             sonucDiv.className = "sonuc-kutusu " + (hata ? "sonuc-hata" : "sonuc-basari");
+
+            return !hata;
         }
 
+        function formuGonder() {
+            const formGecerliMi = nativeKontrol();
 
-        // VUE.JS
+            if (formGecerliMi) {
+                document.getElementById("contactForm").submit();
+            }
+        }
 
         Vue.createApp({
             data() {

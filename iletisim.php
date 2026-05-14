@@ -14,7 +14,7 @@ $mesaj = $_POST["mesaj"] ?? "";
 $onay = isset($_POST["onay"]) ? "Kabul edildi" : "Kabul edilmedi";
 
 function temizle($veri) {
-    return htmlspecialchars(trim($veri));
+    return htmlspecialchars(trim($veri), ENT_QUOTES, 'UTF-8');
 }
 ?>
 
