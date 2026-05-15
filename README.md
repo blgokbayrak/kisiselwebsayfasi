@@ -34,3 +34,4 @@ Projede aşağıdaki sayfalar bulunmaktadır:
 
 Betül Gökbayrak
 Sakarya Üniversitesi
+Canlı Site Linki:https://betulweb.page.gd/index.html 
